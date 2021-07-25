@@ -1,0 +1,35 @@
+﻿<!doctype html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Opal</title>
+	</head>
+
+	<body style="background-color: #000000;">
+
+		<div style="text-align: center;">
+			<div style="margin-bottom: 10px;">
+				<img id="monitorScreen" src="monitor.png" style="width: 1000px; height: 750px;" />
+			</div>
+			<!--
+			<div style="margin-bottom: 10px;">
+				<img id="cameraScreen" src="cameras.jpg" style="width: 1000px; height: 750px;"/>
+			</div>
+			-->
+		</div>
+
+		<script>
+
+			setInterval(() =>
+			{
+				document.getElementById("monitorScreen").src = `monitor.png?x=${(new Date()).getTime()}`;
+				//document.getElementById("cameraScreen").src = `cameras.jpg?x=${(new Date()).getTime()}`;
+			}, 500);
+
+		</script>
+
+	</body>
+
+</html>
