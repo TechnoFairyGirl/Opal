@@ -25,16 +25,19 @@ namespace Opal
 				bounds.Height - (float)(bounds.Height * (percent / 100)));
 		}
 
-		static JObject PfApiCall(string query)
+		static JObject PfApiCall(string query, string postData = null)
 		{
 			var timestamp = DateTime.UtcNow.ToString("yyyyMMddZHHmmss");
 			var nonce = Util.Random(4).ToHexString();
 			var hash = Util.Sha256($"{Config.pfApiSecret}{timestamp}{nonce}".GetBytes()).ToHexString();
 			var auth = $"{Config.pfApiKey}:{timestamp}:{nonce}:{hash}";
 
-			var http = new WebClient();
+			using var http = new WebClient();
+			var url = $"{Config.pfUrl}/fauxapi/v1/?{query}";
 			http.Headers.Add("fauxapi-auth", auth);
-			var json = JObject.Parse(http.DownloadString($"{Config.pfUrl}/fauxapi/v1/?{query}"));
+			var response = postData != null ? http.UploadString(url, postData) : http.DownloadString(url);
+
+			var json = JObject.Parse(response);
 
 			return json;
 		}

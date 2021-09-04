@@ -1,0 +1,56 @@
+﻿{
+	"wxAppId": "",
+	"wxLon": 0,
+	"wxLat": 0,
+
+	"wxUpdateInterval":  600,
+
+	"testFontSize": 20,
+	"testTabWidth": 170,
+
+	"monitorUpdateInterval": 30,
+
+	"pfApiKey": "",
+	"pfApiSecret": "",
+	"pfUrl": "https://",
+
+	"trafficUploadMax": 20,
+	"trafficDownloadMax": 400,
+	"trafficUpdateInterval": 60,
+
+	"tests":
+	[
+		{
+			"name": "Internet",
+			"address": "1.1.1.1:53",
+			"protocol": "tcp",
+		},
+		{
+			"name": "Firewall",
+			"address": "10.0.0.1",
+			"protocol": "ping",
+		},
+		{
+			"name": "Main Web",
+			"address": "https://",
+			"protocol": "http",
+		},
+	],
+
+	"drives": 
+	[
+		{
+			"name": "SSD Storage",
+			"path": "/ssd",
+		},
+		{
+			"name": "HDD Storage",
+			"path": "/share",
+		},
+	],
+
+	"cameras": 
+	[
+		//"rtsp://",
+	],
+}

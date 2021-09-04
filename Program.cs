@@ -13,42 +13,9 @@ namespace Opal
 {
 	static class Program
 	{
-		const int delay = 4;
-
-		static void ShiftOutData(SerialPort sp, int bits, params byte[] data)
-		{
-			sp.BreakState = false;
-			sp.RtsEnable = false;
-			sp.DtrEnable = false;
-
-			Thread.Sleep(delay);
-
-			for (var i = 0; i < bits; i++)
-			{
-				var byt = data[bits / 8];
-				var bit = ((byt >> (i % 8)) & 1) == 1;
-
-				sp.RtsEnable = bit;
-				Thread.Sleep(delay);
-				sp.DtrEnable = true;
-				Thread.Sleep(delay);
-				sp.DtrEnable = false;
-				Thread.Sleep(delay);
-			}
-
-			sp.BreakState = true;
-			Thread.Sleep(delay);
-			sp.BreakState = false;
-			Thread.Sleep(delay);
-		}
-
 		[STAThread]
 		static void Main()
 		{
-			//using var sp = new SerialPort("/dev/ttyUSB3");
-			//sp.Open();
-			//ShiftOutData(sp, 4, 0b1000);
-
 			ServicePointManager.ServerCertificateValidationCallback =
 				(sender, certificate, chain, sslPolicyErrors) => true;
 
