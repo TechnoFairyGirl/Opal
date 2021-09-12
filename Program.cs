@@ -24,7 +24,7 @@ namespace Opal
 
 			var window = new MainWindow();
 
-			var server = new HttpServer(80);
+			var server = new HttpServer(Config.httpPort);
 
 			server.AddStaticFile("/", "view.html");
 

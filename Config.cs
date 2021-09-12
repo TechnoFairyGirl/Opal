@@ -9,6 +9,8 @@ namespace Opal
 	{
 		public static readonly JObject config;
 
+		public static readonly int httpPort;
+
 		public static readonly string wxAppId;
 		public static readonly double wxLon;
 		public static readonly double wxLat;
@@ -38,6 +40,8 @@ namespace Opal
 		static Config()
 		{
 			config = JObject.Parse(File.ReadAllText("config.json"));
+
+			httpPort = (int)config["httpPort"];
 
 			wxAppId = (string)config["wxAppId"];
 			wxLon = (double)config["wxLon"];

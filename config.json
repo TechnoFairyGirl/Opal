@@ -1,4 +1,6 @@
 ﻿{
+	"httpPort": 80,
+
 	"wxAppId": "",
 	"wxLon": 0,
 	"wxLat": 0,
