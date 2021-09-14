@@ -43,7 +43,7 @@ namespace Opal
 				$"{Math.Round(tbUsed, 2)} TB / {Math.Round(tbTotal, 2)} TB" :
 				$"{Math.Round(gbUsed)} GB / {Math.Round(gbTotal)} GB";
 
-			percentUsed = ((double)bytesUsed / bytesTotal) * 100;
+			percentUsed = bytesTotal > 0 ? ((double)bytesUsed / bytesTotal) * 100 : 100;
 		}
 	}
 }

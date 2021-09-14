@@ -114,7 +114,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetPath)" "Z:\Web (Public)"
-copy "$(TargetDir)\config.json" "Z:\Web (Public)"</PostBuildEvent>
+    <PostBuildEvent>rem copy "$(TargetPath)" "Z:\Web (Public)"
+rem copy "$(TargetDir)\config.json" "Z:\Web (Public)"</PostBuildEvent>
   </PropertyGroup>
 </Project>
