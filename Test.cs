@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
+using System.Net;
 using System.Net.Http;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
@@ -63,7 +64,9 @@ namespace Opal
 				HttpResponseMessage response = null;
 				try { response = http.GetAsync(Address).Result; }
 				catch { }
-				if (response != null && response.IsSuccessStatusCode) result = true;
+				if (response != null && 
+					(response.IsSuccessStatusCode || response.StatusCode == HttpStatusCode.Unauthorized))
+					result = true;
 			}
 
 			return result;
