@@ -14,7 +14,7 @@ namespace Opal
 			g.Clear(Color.Black);
 			g.FillEllipse(Brushes.DarkSlateGray, bounds);
 
-			var brush = percent < 60 ? Brushes.LimeGreen : percent < 80 ? Brushes.Gold : Brushes.Red;
+			var brush = percent < 80 ? Brushes.LimeGreen : percent < 90 ? Brushes.Gold : Brushes.Red;
 
 			g.FillPie(brush, bounds, -90, (float)((percent / 100d) * 365d));
 
